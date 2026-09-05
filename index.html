@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OpportunityBridge helps students discover verified scholarships, fellowships, internships, research programs, and college-access opportunities matched to their background and goals.">
+  <meta name="theme-color" content="#5a57ee">
+  <title>OpportunityBridge | Find opportunities that fit you</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="OpportunityBridge home">
+      <span class="brand-mark"><img src="logo-mark.svg" alt=""></span>
+      <span class="brand-name">Opportunity<span>Bridge</span></span>
+    </a>
+    <button class="mobile-menu" aria-label="Open navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="discover.html">Discover</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
+      <a class="saved-nav" href="discover.html?saved=1">Saved <span class="saved-count" data-saved-count>0</span></a>
+      <a class="nav-cta" href="discover.html">Find opportunities</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <span class="hero-orb one"></span><span class="hero-orb two"></span>
+    <div class="container hero-grid">
+      <div class="hero-copy-wrap">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> Verified programs, matched around you</div>
+        <h1>The right opportunity should not require the <span class="gradient-text">right connections.</span></h1>
+        <p class="hero-copy">OpportunityBridge brings scholarships, fellowships, internships, research programs, and access-focused student programs into one place, then helps you understand which ones are worth your time.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="discover.html">Find my matches <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-secondary" href="#how-it-works">See how it works</a>
+        </div>
+        <form class="quick-match" id="quick-match-form" aria-label="Quick opportunity match">
+          <div class="quick-field">
+            <label for="quick-stage">I am a</label>
+            <select id="quick-stage" name="stage">
+              <option value="College Freshman">College freshman</option>
+              <option value="High School Junior">High school junior</option>
+              <option value="High School Senior">High school senior</option>
+              <option value="Community College">Community college student</option>
+              <option value="College Sophomore">College sophomore</option>
+              <option value="College Junior">College junior</option>
+            </select>
+          </div>
+          <div class="quick-field">
+            <label for="quick-interest">Interested in</label>
+            <select id="quick-interest" name="interest"><option value="Technology">Technology</option><option value="Engineering">Engineering</option><option value="Computer Science">Computer science</option><option value="Software Engineering">Software engineering</option><option value="Research">Research</option><option value="Science">Science</option><option value="Mathematics">Mathematics</option><option value="Finance">Finance</option><option value="Investment Management">Investment management</option><option value="Business">Business</option><option value="Public Service">Public service</option><option value="Study Abroad">Study abroad</option></select>
+          </div>
+          <button class="btn btn-primary" type="submit">Match me</button>
+        </form>
+        <div class="trust-line">
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg> Profile stays in your browser</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.2 2.2L16 9"/></svg> Official-source links</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V9l8-5 8 5v10"/><path d="M9 19v-5h6v5"/></svg> Built for students, not advertisers</span>
+        </div>
+      </div>
+
+      <div class="hero-product" aria-label="OpportunityBridge interface preview">
+        <div class="floating-card top">
+          <div class="float-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <strong>Privacy first</strong><span>No account required</span>
+        </div>
+        <div class="floating-card bottom">
+          <div class="float-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></div>
+          <strong id="float-program-count">80 verified programs</strong><span>Current 2026–27 cycle</span>
+        </div>
+        <div class="product-window">
+          <div class="product-bar">
+            <div class="window-dots"><i></i><i></i><i></i></div>
+            <div class="product-brand"><img src="logo-mark.svg" alt=""> OpportunityBridge</div>
+            <span class="mock-chip">Live matcher</span>
+          </div>
+          <div class="product-body">
+            <aside class="product-sidebar">
+              <div class="mock-profile"><div class="mock-avatar">ST</div><div><strong>Student profile</strong><span>4 details added</span></div></div>
+              <div class="mock-nav"><span class="active">Discover</span><span>Saved</span><span>Deadlines</span><span>Resources</span></div>
+            </aside>
+            <div class="mock-main">
+              <div class="mock-main-head"><strong>Recommended for you</strong><span class="mock-chip">12 likely matches</span></div>
+              <div class="mock-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg> Search scholarships, fellowships, internships…</div>
+              <div class="mock-card"><div class="mock-card-top"><div class="mock-logo">GS</div><div class="mock-card-copy"><strong>Goldwater Summer Research Internship</strong><span>Paid research · STEM · Freshman/Sophomore</span></div><div class="mock-score"><span>94%</span></div></div><div class="mock-meta"><span><b>$10,500</b> research award</span><span>Deadline Nov. 2</span></div></div>
+              <div class="mock-card"><div class="mock-card-top"><div class="mock-logo">JS</div><div class="mock-card-copy"><strong>Jane Street IN FOCUS</strong><span>Exploration · Software · Quantitative</span></div><div class="mock-score" style="background:conic-gradient(var(--brand) 0 89%,#eceefa 89% 100%)"><span>89%</span></div></div><div class="mock-meta"><span><b>NYC</b> multi-day program</span><span>Application live</span></div></div>
+              <div class="mock-card"><div class="mock-card-top"><div class="mock-logo">SEO</div><div class="mock-card-copy"><strong>SEO Career</strong><span>Career fellowship · Tech/finance</span></div><div class="mock-score" style="background:conic-gradient(var(--brand) 0 86%,#eceefa 86% 100%)"><span>86%</span></div></div><div class="mock-meta"><span><b>60–100 hrs</b> of training</span><span>Rolling review</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container stats-strip" aria-label="OpportunityBridge stats">
+      <div class="stat"><strong><span id="opportunity-count">80</span></strong><span>curated opportunities</span></div>
+      <div class="stat"><strong><span id="open-count">—</span></strong><span>open or rolling now</span></div>
+      <div class="stat"><strong>100%</strong><span>linked to official sources</span></div>
+      <div class="stat"><strong>Private</strong><span>matching runs locally</span></div>
+    </div>
+  </section>
+
+  <section class="logo-strip" aria-label="Programs represented in the database">
+    <div class="container logo-strip-inner">
+      <div class="logo-strip-label">Database includes programs from</div>
+      <div class="logo-cloud"><span>QuestBridge</span><span>NASA</span><span>NSF</span><span>Goldwater</span><span>Amazon Future Engineer</span><span>Jane Street</span><span>SEO</span><span>MLT</span><span>TMCF</span><span>Jack Kent Cooke</span></div>
+    </div>
+  </section>
+
+  <section class="section white" id="how-it-works">
+    <div class="container">
+      <div class="section-head"><div class="section-copy"><div class="kicker">A better starting point</div><h2>Turn scattered opportunity hunting into a focused shortlist.</h2><p>Instead of opening twenty tabs and trying to remember which programs actually apply to you, build one lightweight profile and let the site do the first pass.</p></div></div>
+      <div class="steps-grid">
+        <article class="step-card"><div class="step-number">01</div><h3>Build a lightweight profile</h3><p>Add your education stage, interests, and only the background details you are comfortable using.</p><div class="step-visual"><div class="visual-input"></div><div class="visual-chips"><i></i><i></i><i></i></div></div></article>
+        <article class="step-card"><div class="step-number">02</div><h3>See what is actually current</h3><p>Every listing includes status, timing, award details, and a direct link to the official source used for verification.</p><div class="step-visual"><div class="visual-list"><div><i></i><i></i><i></i></div><span class="pill pill-open">Open</span></div></div></article>
+        <article class="step-card"><div class="step-number">03</div><h3>Understand why it fits</h3><p>Match explanations surface the profile signals that raised a program, helping you spend time on the most relevant applications.</p><div class="step-visual"><div class="visual-checks"><span>Stage fits</span><span>STEM match</span><span>Need-based</span><span>Access-focused</span></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="container">
+      <div class="section-head"><div class="section-copy"><div class="kicker">Explore by outcome</div><h2>Start with what you are trying to unlock.</h2><p>OpportunityBridge is designed around outcomes students actually care about, not a maze of program categories.</p></div></div>
+      <div class="goal-grid">
+        <a class="goal-card large" href="discover.html"><div class="goal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16v12H4z"/><path d="M8 7V5h8v2M8 12h8"/></svg></div><h3>Find the programs you would otherwise hear about too late.</h3><p>Browse a verified mix of scholarships, internships, fellowships, research programs, and career pipelines, then rank them around your own profile.</p><span class="mini-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a class="goal-card scholarship" href="discover.html?interest=Any"><div class="goal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10 12 5l9 5-9 5-9-5Z"/><path d="M7 13v4c3 2 7 2 10 0v-4"/></svg></div><h3>Pay for college</h3><p>Need-based and achievement scholarships, plus college-access programs.</p><span class="mini-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a class="goal-card internship" href="discover.html?interest=Technology"><div class="goal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M8 6V4h8v2M3 11h18"/></svg></div><h3>Land an internship</h3><p>Career pipelines, industry fellowships, technical programs, and early talent opportunities.</p><span class="mini-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a class="goal-card research" href="discover.html?interest=Research"><div class="goal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3"/><path d="M8 15h8"/></svg></div><h3>Start doing research</h3><p>Paid summer research and nationally competitive STEM pathways.</p><span class="mini-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a class="goal-card network" href="discover.html?interest=Business"><div class="goal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="7" r="2.5"/><path d="M3 20a5 5 0 0 1 10 0M13 18a4 4 0 0 1 8 0"/></svg></div><h3>Build a career network</h3><p>Mentorship, coaching, leadership, and access-focused professional programs.</p><span class="mini-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section white">
+    <div class="container">
+      <div class="section-head"><div class="section-copy"><div class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.2 2.2L16 9"/></svg> Verified September 4, 2026</div><h2>Opportunities worth checking now.</h2><p>Current and upcoming application windows are surfaced first. If an organization has not posted an exact deadline, the site says so instead of guessing.</p></div><a class="btn btn-secondary" href="discover.html">Browse all opportunities</a></div>
+      <div class="featured-grid" id="featured-opportunities"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container access-split">
+      <div class="access-copy"><div class="kicker" style="color:#8fe6d1">Built around access</div><h2>Useful even if you do not have a private counselor or an insider network.</h2><p>The product is intentionally simple: discovery, matching, deadlines, source verification, and saving. No premium tier. No data brokerage. No paywall between you and an application.</p><div class="access-list"><span><i>✓</i> No account required to use the matcher</span><span><i>✓</i> Background details stay in local browser storage</span><span><i>✓</i> Every opportunity points back to its official source</span><span><i>✓</i> Uncertain deadlines are labeled honestly</span></div></div>
+      <div class="access-visual"><div class="access-visual-head"><strong>How a match is explained</strong><span class="privacy-badge">Local-only profile</span></div><div class="match-logic"><div class="logic-row"><span>Education stage</span><div class="logic-track"><i style="width:96%"></i></div><b>Strong</b></div><div class="logic-row"><span>Career interest</span><div class="logic-track"><i style="width:88%"></i></div><b>Strong</b></div><div class="logic-row"><span>Financial context</span><div class="logic-track"><i style="width:78%"></i></div><b>Relevant</b></div><div class="logic-row"><span>Access barriers</span><div class="logic-track"><i style="width:69%"></i></div><b>Relevant</b></div></div><div class="privacy-card"><div class="privacy-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div><div><strong>Your story is context, not a product.</strong><p>The current version sends no profile answers to a backend. Matching is done directly in JavaScript on your device.</p></div></div></div>
+    </div>
+  </section>
+
+  <section class="section white">
+    <div class="container"><div class="cta-band"><div><h2>Build a shortlist before the next deadline sneaks up on you.</h2><p>Tell OpportunityBridge where you are, save the programs that fit, and sort your list by what needs attention first.</p></div><a class="btn btn-primary" href="discover.html">Start matching</a></div></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><a class="brand" href="index.html"><span class="brand-mark"><img src="logo-mark.svg" alt=""></span><span class="brand-name">Opportunity<span>Bridge</span></span></a><p>A student-built opportunity discovery project for people who should not need insider knowledge, extra money, or hours of scattered searching to find a program that could change their path.</p></div>
+      <div class="footer-links"><strong>Explore</strong><a href="discover.html">Discover</a><a href="resources.html">Application resources</a><a href="about.html">About the project</a></div>
+      <div class="footer-links"><strong>Transparency</strong><a href="about.html#verification">How we verify</a><a href="about.html#privacy">Privacy</a><a href="sources.html">Source notes</a></div>
+    </div>
+    <div class="footer-bottom"><span>Built by Abdel Alshawa as an independent student project.</span><span>Program details can change. Always confirm on the official source before applying.</span></div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="opportunity-modal" role="dialog" aria-modal="true" aria-label="Opportunity details"><div class="modal"><button class="modal-close" aria-label="Close details">×</button><div class="modal-content"></div></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><div class="toast-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg></div><div><strong id="toast-title">Saved</strong><span id="toast-copy">Opportunity added to your list.</span></div></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
