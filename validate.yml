@@ -1,0 +1,31 @@
+name: Validate OpportunityBridge
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install validation dependencies
+        run: pip install jsonschema requests
+      - name: Validate source data
+        run: python scripts/validate_data.py
+      - name: Rebuild generated browser assets
+        run: python scripts/build_assets.py
+      - name: Compile C++ matching core to WebAssembly
+        run: |
+          clang++ --target=wasm32 -O3 -nostdlib \
+            -Wl,--no-entry -Wl,--export=match_score -Wl,--export=bit_count -Wl,--export=engine_version \
+            -Wl,--strip-all -o matcher.wasm src/matcher.cpp
+      - name: Run deterministic matcher checks
+        run: python scripts/test_matcher.py
+      - name: Cross-check WebAssembly against JavaScript fallback
+        run: node scripts/test_wasm.mjs
+      - name: Ensure generated assets are committed
+        run: git diff --exit-code -- data.js verification.js signals.js matcher.wasm

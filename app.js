@@ -1,455 +1,147 @@
-(function () {
-  const opportunities = window.OPPORTUNITIES || [];
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const icons = {
-    arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
-    calendar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>',
-    award: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M8.5 12 7 22l5-3 5 3-1.5-10"/></svg>',
-    bookmark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4-6 4z"/></svg>',
-    location: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>',
-    shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>',
-    search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>',
-    info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>',
-    check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>'
+(() => {
+  const DATA = () => window.OPPORTUNITYBRIDGE_DATA || [];
+  const HEALTH = () => (window.OPPORTUNITYBRIDGE_HEALTH || {records:{}}).records || {};
+  const qs=(s,r=document)=>r.querySelector(s), qsa=(s,r=document)=>[...r.querySelectorAll(s)];
+  const savedKey='ob-saved-v4', profileKey='ob-profile-v4';
+  const signalMap={
+    lowIncome:'LOW_INCOME',pell:'PELL',firstGen:'FIRST_GEN',inequitableAccess:'LIMITED_ACCESS',housingInsecure:'HOUSING_INSECURE',fosterCare:'FOSTER_CARE',rural:'RURAL',
+    black:'BLACK',hispanic:'HISPANIC',aian:'AIAN',nhpi:'NHPI',asian:'ASIAN',lgbtq:'LGBTQ',disability:'DISABILITY',veteran:'VETERAN',militaryDependent:'MILITARY_DEPENDENT',immigrantChild:'IMMIGRANT_CHILD',newAmerican:'IMMIGRANT_CHILD',
+    hbcu:'HBCU',hsi:'HSI',tcu:'TRIBAL_COLLEGE',transfer:'TRANSFER',adultLearner:'ADULT_LEARNER',parentGuardian:'STUDENT_PARENT',priorResearch:'PRIOR_RESEARCH',phdIntent:'PHD_INTENT',firstStudyAbroad:'FIRST_STUDY_ABROAD',gpa34:'GPA34',workAuthorizedUS:'WORK_AUTHORIZED'
+  };
+  const interestSignals={
+    'Aerospace':'AEROSPACE','Artificial Intelligence':'AI','Business':'BUSINESS','Chemistry':'CHEMISTRY','Computer Engineering':'COMP_ENG','Electrical Engineering':'EE','Computer Science':'CS','Consulting':'CONSULTING','Cybersecurity':'CYBERSECURITY','Data Science':'DATA_SCIENCE','Economics':'ECONOMICS','Education':'EDUCATION','Engineering':'ENGINEERING','Environment':'ENVIRONMENT','Finance':'FINANCE','Government':'GOVERNMENT','Healthcare':'HEALTHCARE','Humanities':'HUMANITIES','International Affairs':'INTERNATIONAL','Investment Management':'INVESTMENT','Manufacturing':'MANUFACTURING','Mathematics':'MATH','Public Policy':'POLICY','Public Service':'PUBLIC_SERVICE','Quantitative':'QUANT','Research':'RESEARCH','Science':'SCIENCE','Software Engineering':'SOFTWARE','Study Abroad':'INTERNATIONAL','Technology':'TECH','Real Estate':'BUSINESS'
   };
 
-  function esc(v) {
-    return String(v ?? '').replace(/[&<>'"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#039;', '"':'&quot;' }[c]));
-  }
-
-  function parseDate(iso) {
-    if (!iso) return null;
-    const [y, m, d] = iso.split('-').map(Number);
-    return new Date(y, m - 1, d);
-  }
-
-  function daysUntil(iso) {
-    const d = parseDate(iso);
-    if (!d) return null;
-    return Math.ceil((d - today) / 86400000);
-  }
-
-  function getStatus(op) {
-    if (op.statusOverride) {
-      const lower = op.statusOverride.toLowerCase();
-      const upcomingSignals = ['opening', 'opens ', 'upcoming', 'pending', 'interest form'];
-      if (upcomingSignals.some(signal => lower.includes(signal))) return { label: op.statusOverride, cls: 'upcoming' };
-      if (lower.includes('open')) return { label: op.statusOverride, cls: 'open' };
-      return { label: op.statusOverride, cls: 'rolling' };
-    }
-    if (op.rolling) return { label: 'Rolling', cls: 'rolling' };
-    const open = parseDate(op.openDate);
-    const deadline = parseDate(op.deadline);
-    if (open && today < open) return { label: 'Upcoming', cls: 'upcoming' };
-    if (deadline && today <= deadline) return { label: 'Open', cls: 'open' };
-    if (deadline && today > deadline) return { label: 'Closed', cls: 'closed' };
-    return { label: 'Check official site', cls: 'rolling' };
-  }
-
-  function deadlineText(op) {
-    const status = getStatus(op);
-    if (op.rolling) return op.deadlineNote || 'Rolling';
-    if (status.cls === 'upcoming' && op.openDate) {
-      const diff = daysUntil(op.openDate);
-      if (diff !== null && diff >= 0 && diff <= 120) return `Opens in ${diff} day${diff === 1 ? '' : 's'}`;
-    }
-    if (op.deadline) {
-      const diff = daysUntil(op.deadline);
-      if (diff !== null && diff >= 0 && diff <= 180) return `${diff} day${diff === 1 ? '' : 's'} left`;
-    }
-    return op.deadlineNote || 'See official page';
-  }
-
-  function statusPill(op) {
-    const st = getStatus(op);
-    return `<span class="pill pill-${st.cls}">${esc(st.label)}</span>`;
-  }
-
-  function getSaved() {
-    try { return JSON.parse(localStorage.getItem('opportunitybridge-saved') || '[]'); }
-    catch { return []; }
-  }
-
-  function setSaved(ids) {
-    try { localStorage.setItem('opportunitybridge-saved', JSON.stringify(ids)); return true; }
-    catch { return false; }
-  }
-  function isSaved(id) { return getSaved().includes(id); }
-
-  function updateSavedCounts() {
-    const count = getSaved().length;
-    document.querySelectorAll('[data-saved-count]').forEach(el => { el.textContent = count; });
-  }
-
-  let toastTimer;
-  function showToast(title, copy) {
-    const toast = document.getElementById('toast');
-    if (!toast) return;
-    const titleEl = document.getElementById('toast-title');
-    const copyEl = document.getElementById('toast-copy');
-    if (titleEl) titleEl.textContent = title;
-    if (copyEl) copyEl.textContent = copy;
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
-  }
-
-  function toggleSaved(id) {
-    let ids = getSaved();
-    const wasSaved = ids.includes(id);
-    ids = wasSaved ? ids.filter(x => x !== id) : [...ids, id];
-    setSaved(ids);
-    document.querySelectorAll(`[data-save="${CSS.escape(id)}"]`).forEach(btn => {
-      btn.classList.toggle('saved', ids.includes(id));
-      btn.setAttribute('aria-label', ids.includes(id) ? 'Remove from saved' : 'Save opportunity');
-      btn.title = ids.includes(id) ? 'Remove from saved' : 'Save opportunity';
-      if (btn.matches('.modal-footer .btn')) btn.textContent = ids.includes(id) ? 'Saved' : 'Save opportunity';
-    });
-    updateSavedCounts();
-    showToast(wasSaved ? 'Removed from saved' : 'Saved to your list', wasSaved ? 'You can add it again at any time.' : 'Use the Saved filter to see it later.');
-    document.dispatchEvent(new CustomEvent('savedChanged'));
-  }
-
-  function orgInitials(name) {
-    const cleaned = String(name || '').replace(/\([^)]*\)/g, '').replace(/[^A-Za-z0-9 ]/g, ' ').trim();
-    const parts = cleaned.split(/\s+/).filter(Boolean).filter(w => !['the','of','and','for','foundation','program'].includes(w.toLowerCase()));
-    if (!parts.length) return 'OB';
-    if (parts.length === 1) return parts[0].slice(0, 3).toUpperCase();
-    return parts.slice(0, 3).map(w => w[0]).join('').toUpperCase();
-  }
-
-  function toneFor(op) {
-    const str = `${op.organization}${op.name}`;
-    let sum = 0;
-    for (let i = 0; i < str.length; i++) sum += str.charCodeAt(i);
-    return sum % 5;
-  }
-
-  function tagsFor(op) {
-    const tags = [op.type];
-    if (op.lowIncomeFocus) tags.push('Financial need');
-    if (op.pellRequired) tags.push('Pell required');
-    if (op.firstGenPriority) tags.push('First-gen friendly');
-    if (op.inequitableAccessFocus) tags.push('Access-focused');
-    return tags.slice(0, 4);
-  }
-
-  function cardHTML(op, opts = {}) {
-    const saved = isSaved(op.id);
-    const match = opts.match;
-    const reasons = opts.reasons || [];
-    const tone = toneFor(op);
-    const matchUI = typeof match === 'number'
-      ? `<div class="match-ring" style="--match:${match}" aria-label="${match}% match"><span>${match}%</span></div>`
-      : '';
-    const deadline = deadlineText(op);
-    return `
-      <article class="opportunity-card" data-opportunity-id="${esc(op.id)}">
-        <div class="card-top">
-          <div class="org-avatar tone-${tone}">${esc(orgInitials(op.organization))}</div>
-          <div class="card-title-wrap"><div class="org">${esc(op.organization)}</div><h3>${esc(op.name)}</h3></div>
-          <button class="bookmark ${saved ? 'saved' : ''}" data-save="${esc(op.id)}" aria-label="${saved ? 'Remove from saved' : 'Save opportunity'}" title="${saved ? 'Remove from saved' : 'Save opportunity'}">${icons.bookmark}</button>
-        </div>
-        <div class="card-status-row"><div class="card-tags">${statusPill(op)}${tagsFor(op).slice(0, 2).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>${matchUI}</div>
-        <p class="card-summary">${esc(op.summary)}</p>
-        ${reasons.length ? `<div class="match-reasons"><strong>Why it may fit</strong><div class="reason-list">${reasons.slice(0, 4).map(r => `<span class="reason">${esc(r)}</span>`).join('')}</div></div>` : ''}
-        <div class="card-meta">
-          <div class="meta-box">${icons.calendar}<span><strong>${esc(deadline)}</strong><br>${esc(op.deadlineNote || 'See official page for timing')}</span></div>
-          <div class="meta-box">${icons.award}<span>${esc(op.award)}</span></div>
-        </div>
-        <div class="verification-line">${icons.shield}<span>Verified ${esc(op.verified)} · official source</span></div>
-        <div class="card-actions"><button class="btn btn-secondary btn-sm" data-details="${esc(op.id)}">View details</button><a class="btn btn-primary btn-sm" href="${esc(op.sourceUrl)}" target="_blank" rel="noopener">Official site ${icons.arrow}</a></div>
-      </article>`;
-  }
-
-  function bindCards(root = document) {
-    root.querySelectorAll('[data-save]').forEach(btn => {
-      if (btn.dataset.bound) return;
-      btn.dataset.bound = '1';
-      btn.addEventListener('click', () => toggleSaved(btn.dataset.save));
-    });
-    root.querySelectorAll('[data-details]').forEach(btn => {
-      if (btn.dataset.bound) return;
-      btn.dataset.bound = '1';
-      btn.addEventListener('click', () => openModal(btn.dataset.details));
-    });
-  }
-
-  function openModal(id) {
-    const op = opportunities.find(o => o.id === id);
-    const backdrop = document.getElementById('opportunity-modal');
-    if (!op || !backdrop) return;
-    const saved = isSaved(op.id);
-    const tone = toneFor(op);
-    backdrop.querySelector('.modal-content').innerHTML = `
-      <div class="modal-title-row"><div class="org-avatar tone-${tone}">${esc(orgInitials(op.organization))}</div><div><div class="card-tags">${statusPill(op)} ${tagsFor(op).slice(0, 3).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div><h2>${esc(op.name)}</h2><div class="org">${esc(op.organization)}</div></div></div>
-      <p class="modal-lead">${esc(op.summary)}</p>
-      <div class="modal-grid">
-        <div class="modal-section"><h3>What it offers</h3><p>${esc(op.award)}</p></div>
-        <div class="modal-section"><h3>Timing</h3><p><strong>${esc(deadlineText(op))}</strong><br>${esc(op.deadlineNote || 'See the official site for current timing.')}</p></div>
-        <div class="modal-section full"><h3>Key eligibility to check</h3><ul>${op.requirements.map(r => `<li>${esc(r)}</li>`).join('')}</ul></div>
-        <div class="modal-section"><h3>Location / citizenship</h3><p>${esc(op.locations.join(', '))}. ${esc(op.citizenship || '')}</p></div>
-        <div class="modal-section"><h3>Source verification</h3><p>${esc(op.sourceLabel)}. Verified ${esc(op.verified)}. Final eligibility and deadlines are controlled by the official program site.</p></div>
-      </div>
-      <div class="modal-footer"><button class="btn btn-secondary" data-save="${esc(op.id)}">${saved ? 'Saved' : 'Save opportunity'}</button><a class="btn btn-primary" href="${esc(op.sourceUrl)}" target="_blank" rel="noopener">Visit official site ${icons.arrow}</a></div>`;
-    backdrop.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    bindCards(backdrop);
-    backdrop.querySelector('.modal-close')?.focus();
-  }
-
-  function closeModal() {
-    const backdrop = document.getElementById('opportunity-modal');
-    if (!backdrop) return;
-    backdrop.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function initNav() {
-    const menu = document.querySelector('.mobile-menu');
-    const links = document.querySelector('.nav-links');
-    if (menu && links) {
-      menu.addEventListener('click', () => {
-        const open = links.classList.toggle('open');
-        menu.setAttribute('aria-expanded', String(open));
-      });
-      links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        links.classList.remove('open');
-        menu.setAttribute('aria-expanded', 'false');
-      }));
-    }
+  function initCommon(){
+    const themeBtn=document.createElement('button'); themeBtn.className='theme-toggle'; themeBtn.type='button'; themeBtn.setAttribute('aria-label','Toggle light and dark theme');
+    function paint(){const dark=document.documentElement.dataset.theme==='dark';themeBtn.innerHTML=dark?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>';}
+    paint(); themeBtn.addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=next;localStorage.setItem('ob-theme',next);paint();});
+    const mobile=qs('.mobile-menu'); if(mobile){mobile.parentElement.append(themeBtn,mobile);mobile.addEventListener('click',()=>{const nav=qs('.nav-links');const open=nav.classList.toggle('open');mobile.setAttribute('aria-expanded',String(open));});} else qs('.nav')?.appendChild(themeBtn);
     updateSavedCounts();
   }
-
-  function initModal() {
-    const backdrop = document.getElementById('opportunity-modal');
-    if (!backdrop) return;
-    backdrop.querySelector('.modal-close')?.addEventListener('click', closeModal);
-    backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  function getSaved(){try{return new Set(JSON.parse(localStorage.getItem(savedKey)||'[]'));}catch{return new Set();}}
+  function setSaved(set){localStorage.setItem(savedKey,JSON.stringify([...set]));updateSavedCounts();}
+  function updateSavedCounts(){const n=getSaved().size;qsa('[data-saved-count]').forEach(x=>x.textContent=n);}
+  function healthFor(op){
+    const h={state:'needs_review',lastChecked:op.lastVerifiedAt,...HEALTH()[op.id]};
+    const age=daysAgo(h.lastChecked);
+    if(h.state==='verified' && age!==null && age>14) return {...h,state:'needs_review',stale:true};
+    return h;
   }
+  function visibleData(){return DATA().filter(op=>op.active!==false && healthFor(op).state!=='discontinued');}
+  function currentStatus(op){
+    const today=new Date(); today.setHours(0,0,0,0);
+    const open=op.opensAt?new Date(op.opensAt+'T00:00:00'):null, close=op.closesAt?new Date(op.closesAt+'T23:59:59'):null;
+    if(open && today<open) return 'upcoming'; if(close && today>close) return 'closed';
+    if(open||close) return 'open';
+    if(op.statusHint==='rolling') return 'rolling'; if(op.statusHint==='closed') return 'closed'; if(op.statusHint==='upcoming') return 'upcoming'; return 'active';
+  }
+  function statusLabel(s){return ({open:'Open now',rolling:'Rolling / ongoing',upcoming:'Upcoming',closed:'Window closed',active:'Active program'})[s]||'Active program';}
+  function formatDate(iso){if(!iso)return '';try{return new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',year:'numeric'}).format(new Date(iso+'T12:00:00'));}catch{return iso;}}
+  function initials(name){return name.split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase();}
+  function daysAgo(iso){if(!iso)return null; const d=new Date(iso); if(Number.isNaN(d))return null; return Math.max(0,Math.floor((Date.now()-d.getTime())/86400000));}
+  function toast(title,copy){const t=qs('#toast');if(!t)return;qs('#toast-title').textContent=title;qs('#toast-copy').textContent=copy;t.classList.add('show');clearTimeout(t._timer);t._timer=setTimeout(()=>t.classList.remove('show'),2200);}
 
-  function initHome() {
-    const featured = document.getElementById('featured-opportunities');
-    if (featured) {
-      const ranked = opportunities
-        .filter(o => ['open', 'upcoming', 'rolling'].includes(getStatus(o).cls))
-        .sort((a, b) => (parseDate(a.deadline)?.getTime() || Number.MAX_SAFE_INTEGER) - (parseDate(b.deadline)?.getTime() || Number.MAX_SAFE_INTEGER))
-        .slice(0, 6);
-      featured.innerHTML = ranked.map(o => cardHTML(o)).join('');
-      bindCards(featured);
+  function profileFromForm(form){
+    const fd=new FormData(form); const signalNames=[];
+    for(const [name,sig] of Object.entries(signalMap)){const el=form.elements[name]; if(el && ((el.type==='checkbox'&&el.checked)||(el.type!=='checkbox'&&fd.get(name)))) signalNames.push(sig);}
+    const gender=fd.get('gender'); if(gender==='woman')signalNames.push('WOMAN'); if(gender==='man')signalNames.push('MAN'); if(gender==='genderMinority')signalNames.push('GENDER_MINORITY');
+    const cit=fd.get('citizenshipStatus'); if(cit==='usCitizen')signalNames.push('US_CITIZEN','WORK_AUTHORIZED'); if(cit==='permanentResident')signalNames.push('PERMANENT_RESIDENT','WORK_AUTHORIZED'); if(cit==='daca')signalNames.push('DACA_UNDOCUMENTED'); if(cit==='refugeeAsylee')signalNames.push('WORK_AUTHORIZED','IMMIGRANT_CHILD');
+    const interests=[]; const primary=fd.get('interest'); if(primary) interests.push(primary); fd.getAll('additionalInterest').forEach(x=>{if(!interests.includes(x)) interests.push(x);});
+    for(const i of interests){const sig=interestSignals[i]; if(sig)signalNames.push(sig);}
+    if(fd.get('stage')==='Community College')signalNames.push('COMMUNITY_COLLEGE');
+    return {stage:fd.get('stage')||'',state:fd.get('state')||'',institution:fd.get('lsuStudent')?'Louisiana State University':'',interests,signalNames:[...new Set(signalNames)],gender,citizenship:cit};
+  }
+  function saveProfile(form){const out={};for(const el of qsa('input,select',form)){if(!el.name)continue;if(el.type==='checkbox'){out[el.name]=out[el.name]||[];if(el.checked)out[el.name].push(el.value||'on');}else out[el.name]=el.value;}localStorage.setItem(profileKey,JSON.stringify(out));}
+  function restoreProfile(form){try{const p=JSON.parse(localStorage.getItem(profileKey)||'{}');for(const el of qsa('input,select',form)){if(!el.name||p[el.name]===undefined)continue;if(el.type==='checkbox')el.checked=(p[el.name]||[]).includes(el.value||'on');else el.value=p[el.name];}}catch{}}
+  function profileProgress(form){const p=profileFromForm(form);let points=0,total=8;if(p.stage)points++;if(p.interests.length)points++;if(p.state)points++;if(p.institution)points++;if(p.signalNames.some(x=>['LOW_INCOME','PELL','FIRST_GEN','LIMITED_ACCESS'].includes(x)))points++;if(p.gender)points++;if(p.citizenship)points++;if(p.signalNames.some(x=>['PRIOR_RESEARCH','PHD_INTENT','GPA34','TRANSFER','HBCU','HSI','TRIBAL_COLLEGE'].includes(x)))points++;return Math.round(points/total*100);}
+
+  function detailReason(op, profile, result){
+    const bits=[]; if(result.explicitConflict)bits.push('One disclosed profile signal conflicts with this program’s stated audience.');
+    if(profile.stage && op.stages.includes(profile.stage))bits.push(`Your ${profile.stage.toLowerCase()} stage fits.`);
+    const ins=profile.interests.filter(x=>op.interests.includes(x)); if(ins.length)bits.push(`Your ${ins.slice(0,2).join(' / ')} interest aligns.`);
+    if(profile.state && (op.states||[]).includes(profile.state))bits.push(`This program includes students in ${profile.state}.`);
+    if(profile.institution && (op.institutions||[]).includes(profile.institution))bits.push('This program is offered through your institution.');
+    if(!bits.length)bits.push('Your profile is incomplete or this program has broad eligibility; check the official source for details.'); return bits;
+  }
+  function openModal(op,profile,result){
+    const back=qs('#opportunity-modal'); if(!back)return; const h=healthFor(op),st=currentStatus(op),ago=daysAgo(h.lastChecked||op.lastVerifiedAt);
+    const requirements=(op.requirements||[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('');
+    qs('.modal-content',back).innerHTML=`<div class="card-badges"><span class="badge ${st}">${statusLabel(st)}</span><span class="badge">${escapeHtml(op.displayType)}</span></div><h2>${escapeHtml(op.name)}</h2><div class="modal-org">${escapeHtml(op.organization)}</div><div class="detail-grid"><div class="detail-box"><span>Match estimate</span><strong>${result.score}%</strong></div><div class="detail-box"><span>Automated source check</span><strong>${h.state==='verified'?'Source checked':'Needs review'}${ago!==null?` · ${ago}d ago`:''}</strong></div><div class="detail-box"><span>Application window</span><strong>${escapeHtml(op.statusNote)}</strong></div><div class="detail-box"><span>Program reviewed</span><strong>${escapeHtml(formatDate(op.lastVerifiedAt))}</strong></div></div><p class="modal-copy">${escapeHtml(op.description)}</p>${op.award?`<div class="callout"><strong>What it provides</strong><br>${escapeHtml(op.award)}</div>`:''}${op.eligibilityNote?`<div class="callout"><strong>Eligibility context</strong><br>${escapeHtml(op.eligibilityNote)}</div>`:''}${requirements?`<div class="callout"><strong>Requirements to verify</strong><ul>${requirements}</ul></div>`:''}<div class="callout"><strong>Why it surfaced</strong><br>${detailReason(op,profile,result).map(escapeHtml).join('<br>')}</div><div class="modal-actions"><a class="btn btn-primary" target="_blank" rel="noopener" href="${op.sourceUrl}">Open official source ↗</a><button class="btn btn-secondary" type="button" data-modal-save="${op.id}">${getSaved().has(op.id)?'Remove saved':'Save opportunity'}</button></div>`;
+    back.classList.add('open'); document.body.style.overflow='hidden';
+    qs('[data-modal-save]',back)?.addEventListener('click',e=>{toggleSaved(op.id);e.currentTarget.textContent=getSaved().has(op.id)?'Remove saved':'Save opportunity';});
+  }
+  function closeModal(){const b=qs('#opportunity-modal');if(b)b.classList.remove('open');document.body.style.overflow='';}
+  function escapeHtml(s=''){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+  function toggleSaved(id){const s=getSaved();if(s.has(id)){s.delete(id);toast('Removed','Opportunity removed from saved.');}else{s.add(id);toast('Saved','Opportunity added to your list.');}setSaved(s);document.dispatchEvent(new CustomEvent('ob:saved'));}
+
+  async function initDiscover(){
+    const form=qs('#match-form'); if(!form)return; restoreProfile(form);
+    const params=new URLSearchParams(location.search);
+    if(params.get('stage')&&form.elements.stage)form.elements.stage.value=params.get('stage');
+    if(params.get('interest')&&form.elements.interest)form.elements.interest.value=params.get('interest');
+    await window.OBMatcher.init();
+    const requestedProgram=DATA().find(o=>o.id===params.get('program'));
+    let profile=profileFromForm(form), likelyOnly=false, savedOnly=params.get('saved')==='1', query=requestedProgram?requestedProgram.name:'',type='',status='',sort='match';
+    if(requestedProgram&&qs('#keyword-search'))qs('#keyword-search').value=requestedProgram.name;
+    const prog=qs('#profile-progress');
+    function syncProgress(){const v=profileProgress(form);prog.style.setProperty('--progress',v);qs('span',prog).textContent=v+'%';}
+    function summary(){const labels=[];if(profile.stage)labels.push(profile.stage);labels.push(...profile.interests.slice(0,2));if(profile.institution)labels.push('LSU');if(profile.signalNames.includes('FIRST_GEN'))labels.push('First-gen');if(profile.signalNames.includes('LOW_INCOME'))labels.push('Financial need');qs('#profile-summary').innerHTML=labels.slice(0,4).map(x=>`<span class="summary-chip">${escapeHtml(x)}</span>`).join('');}
+    function render(){
+      profile=profileFromForm(form); saveProfile(form); syncProgress(); summary(); const saved=getSaved();
+      let scored=visibleData().map(op=>({op,res:window.OBMatcher.score(op,profile)}));
+      if(query){const q=query.toLowerCase();scored=scored.filter(({op})=>(op.name+' '+op.organization+' '+op.interests.join(' ')+' '+op.displayType).toLowerCase().includes(q));}
+      if(type)scored=scored.filter(x=>x.op.type===type);if(status)scored=scored.filter(x=>currentStatus(x.op)===status);if(likelyOnly)scored=scored.filter(x=>x.res.score>=70&&!x.res.explicitConflict);if(savedOnly)scored=scored.filter(x=>saved.has(x.op.id));
+      if(sort==='name')scored.sort((a,b)=>a.op.name.localeCompare(b.op.name));else if(sort==='deadline')scored.sort((a,b)=>(a.op.closesAt||'9999').localeCompare(b.op.closesAt||'9999'));else scored.sort((a,b)=>b.res.score-a.res.score||Number(b.op.featured)-Number(a.op.featured));
+      qs('#results-number').textContent=scored.length;qs('#results-caption').textContent=savedOnly?'Showing your saved programs.':'Source-linked programs, ranked locally.';
+      const grid=qs('#results-grid'); if(!scored.length){grid.innerHTML='<div class="empty-state"><strong>No programs match these filters.</strong><br>Try clearing a filter or leaving optional profile fields blank.</div>';updateDiagnostics();return;}
+      grid.innerHTML=scored.map(({op,res})=>{const st=currentStatus(op),h=healthFor(op),isSaved=saved.has(op.id);const deadline=op.closesAt?`Deadline ${formatDate(op.closesAt)}`:op.statusNote;const reasons=res.reasons.length?res.reasons.slice(0,3):['broad eligibility'];return `<article class="opportunity-card" data-id="${op.id}"><div class="card-top"><div class="org-mark">${initials(op.organization)}</div><div class="card-actions"><button class="icon-button ${isSaved?'saved':''}" aria-label="${isSaved?'Remove from':'Save to'} saved opportunities" data-save="${op.id}"><svg viewBox="0 0 24 24" fill="${isSaved?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4-6 4V3Z"/></svg></button></div></div><div class="card-badges"><span class="badge ${st}">${statusLabel(st)}</span><span class="badge">${escapeHtml(op.displayType)}</span>${h.state==='needs_review'?'<span class="badge review">Source review</span>':''}</div><h3 class="card-title">${escapeHtml(op.name)}</h3><div class="card-org">${escapeHtml(op.organization)}</div><p class="card-copy">${escapeHtml(op.description)}</p><div class="match-block"><div class="match-score">${res.score}% <small>match</small></div><div class="match-reasons">${reasons.map(r=>`<span class="reason-pill">${escapeHtml(r)}</span>`).join('')}</div></div><div class="card-foot"><span class="deadline">${escapeHtml(deadline)}</span><button class="text-link" type="button" data-details="${op.id}">Details →</button></div></article>`}).join('');
+      qsa('[data-save]',grid).forEach(b=>b.addEventListener('click',()=>{toggleSaved(b.dataset.save);render();})); qsa('[data-details]',grid).forEach(b=>b.addEventListener('click',()=>{const item=scored.find(x=>x.op.id===b.dataset.details);openModal(item.op,profile,item.res);})); updateDiagnostics();
     }
-    const total = opportunities.length;
-    const open = opportunities.filter(o => ['open', 'rolling'].includes(getStatus(o).cls)).length;
-    const count = document.getElementById('opportunity-count');
-    const openCount = document.getElementById('open-count');
-    const floatCount = document.getElementById('float-program-count');
-    if (count) count.textContent = total;
-    if (openCount) openCount.textContent = open;
-    if (floatCount) floatCount.textContent = `${total} verified programs`;
-
-    const quick = document.getElementById('quick-match-form');
-    quick?.addEventListener('submit', e => {
-      e.preventDefault();
-      const stage = quick.elements.stage.value;
-      const interest = quick.elements.interest.value;
-      const params = new URLSearchParams();
-      if (stage) params.set('stage', stage);
-      if (interest) params.set('interest', interest);
-      location.href = `discover.html?${params.toString()}`;
-    });
+    function updateDiagnostics(){const m=window.OBMatcher.metrics();qs('#diag-engine').textContent=m.engine;qs('#diag-programs').textContent=visibleData().length+' visible';qs('#diag-average').textContent=m.evaluations?m.averageMs.toFixed(4)+' ms':'—';qs('#diag-cache').textContent=`${m.cacheHits} hits / ${m.cacheMisses} misses`;qs('#diag-wasm').textContent=m.wasmBytes?`${m.wasmBytes} bytes`:'fallback';const h=window.OPPORTUNITYBRIDGE_HEALTH||{};qs('#diag-verification').textContent=(h.generatedAt||'snapshot').slice(0,10);}
+    qsa('input,select',form).forEach(el=>el.addEventListener('change',()=>{profile=profileFromForm(form);syncProgress();})); form.addEventListener('submit',e=>{e.preventDefault();render();qs('#results-top').scrollIntoView({behavior:'smooth',block:'start'});});qs('[data-reset]')?.addEventListener('click',()=>{form.reset();localStorage.removeItem(profileKey);render();});
+    qs('#keyword-search').addEventListener('input',e=>{query=e.target.value.trim();render();});qs('#type-filter').addEventListener('change',e=>{type=e.target.value;render();});qs('#status-filter').addEventListener('change',e=>{status=e.target.value;render();});qs('#sort-results').addEventListener('change',e=>{sort=e.target.value;render();});
+    const likely=qs('#likely-toggle');likely.addEventListener('click',()=>{likelyOnly=!likelyOnly;likely.classList.toggle('active',likelyOnly);render();});const sb=qs('#saved-toggle');sb.classList.toggle('active',savedOnly);sb.addEventListener('click',()=>{savedOnly=!savedOnly;sb.classList.toggle('active',savedOnly);render();});
+    const dt=qs('#diagnostics-toggle'),dp=qs('#diagnostics-panel');dt.addEventListener('click',()=>{const show=dp.hidden;dp.hidden=!show;dt.setAttribute('aria-expanded',String(show));dt.classList.toggle('active',show);updateDiagnostics();});qs('#run-benchmark').addEventListener('click',()=>{const b=window.OBMatcher.benchmark(visibleData(),profile,80);qs('#diag-benchmark').textContent=`${b.perEval.toFixed(4)} ms/eval · ${b.count.toLocaleString()} ops`;updateDiagnostics();});
+    qs('.mobile-filter-button')?.addEventListener('click',()=>qs('.filter-panel').classList.toggle('mobile-open'));qs('.mobile-filter-close')?.addEventListener('click',()=>qs('.filter-panel').classList.remove('mobile-open'));
+    qs('.modal-close')?.addEventListener('click',closeModal);qs('#opportunity-modal')?.addEventListener('click',e=>{if(e.target.id==='opportunity-modal')closeModal();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});document.addEventListener('ob:saved',render);
+    const total=visibleData();qs('#discover-total').textContent=total.length;qs('#discover-open').textContent=total.filter(x=>['open','rolling'].includes(currentStatus(x))).length;syncProgress();render();
   }
 
-  function profileFromForm(form) {
-    const val = name => form.elements[name]?.value || '';
-    const checked = name => !!form.elements[name]?.checked;
-    const identities = Array.from(form.querySelectorAll('input[name="identity"]:checked')).map(x => x.value);
-    return {
-      stage: val('stage'), interest: val('interest'), state: val('state'),
-      lowIncome: checked('lowIncome'), pell: checked('pell'), firstGen: checked('firstGen'), inequitableAccess: checked('inequitableAccess'), identities
-    };
-  }
-
-  function scoreOpportunity(op, profile) {
-    let score = 22;
-    const reasons = [];
-    let hardMismatch = false;
-    if (profile.stage) {
-      if (op.audience.includes(profile.stage)) { score += 30; reasons.push('Education stage fits'); }
-      else { score -= 28; hardMismatch = true; }
+  async function initHome(){
+    const d=visibleData(); if(!d.length)return;
+    qsa('[data-home-total]').forEach(x=>x.textContent=d.length+'+');
+    qsa('[data-home-open]').forEach(x=>x.textContent=d.filter(o=>['open','rolling'].includes(currentStatus(o))).length);
+    qsa('[data-program-count]').forEach(x=>x.textContent=d.length);
+    const total=qs('#opportunity-count');if(total)total.textContent=d.length;
+    const open=qs('#open-count');if(open)open.textContent=d.filter(o=>['open','rolling'].includes(currentStatus(o))).length;
+    const floating=qs('#float-program-count');if(floating)floating.textContent=`${d.length} curated programs`;
+    const newest=d.filter(x=>x.featured).slice(-3).reverse();
+    const box=qs('#home-preview-list');if(box)box.innerHTML=newest.map(o=>`<div class="preview-list-item"><div class="preview-logo">${initials(o.organization)}</div><div><strong>${escapeHtml(o.name)}</strong><small>${statusLabel(currentStatus(o))} · ${escapeHtml(o.displayType)}</small></div></div>`).join('');
+    const featured=qs('#featured-opportunities');
+    if(featured){
+      const items=d.filter(o=>['open','rolling','upcoming'].includes(currentStatus(o))).sort((a,b)=>(a.closesAt||'9999').localeCompare(b.closesAt||'9999')).slice(0,6);
+      featured.innerHTML=items.map(o=>{const st=currentStatus(o);return `<article class="opportunity-card"><div class="card-top"><div class="org-avatar">${initials(o.organization)}</div><div class="card-title-wrap"><div class="org">${escapeHtml(o.organization)}</div><h3>${escapeHtml(o.name)}</h3></div></div><div class="card-status-row"><div class="card-tags"><span class="pill pill-${st}">${statusLabel(st)}</span><span class="tag">${escapeHtml(o.displayType)}</span></div></div><p class="card-summary">${escapeHtml(o.description)}</p><div class="card-meta"><div class="meta-box"><span><strong>${escapeHtml(o.closesAt?`Deadline ${formatDate(o.closesAt)}`:o.statusNote)}</strong><br>${escapeHtml(o.award)}</span></div></div><div class="verification-line"><span>Source-linked and checked</span></div><div class="card-actions"><a class="btn btn-secondary btn-sm" href="discover.html?program=${encodeURIComponent(o.id)}">Explore match</a><a class="btn btn-primary btn-sm" target="_blank" rel="noopener" href="${o.sourceUrl}">Official site ↗</a></div></article>`}).join('');
     }
-    if (profile.interest) {
-      if (op.interests.includes('Any') || op.interests.includes(profile.interest)) { score += 18; reasons.push('Matches your interest'); }
-      else score -= 5;
-    }
-    if (profile.lowIncome && op.lowIncomeFocus) { score += 14; reasons.push('Designed around financial need'); }
-    if (profile.lowIncome && op.lowIncomeBonus) { score += 6; reasons.push('Low-income applicants receive an advantage'); }
-    if (profile.pell && op.pellRequired) { score += 14; reasons.push('Pell eligibility aligns'); }
-    if (!profile.pell && op.pellRequired && profile.stage) score -= 8;
-    if (profile.firstGen && op.firstGenPriority) { score += 8; reasons.push('First-gen friendly'); }
-    if (profile.inequitableAccess && op.inequitableAccessFocus) { score += 8; reasons.push('Built for access barriers'); }
-    if (profile.identities.length && op.identity?.length) {
-      const matches = op.identity.filter(i => profile.identities.includes(i));
-      if (matches.length) { score += 12; reasons.push('Optional eligibility background matches'); }
-      else { score -= 18; hardMismatch = true; }
-    }
-    if (profile.state && op.locations && !op.locations.includes('United States')) {
-      const locMatch = op.locations.some(l => l === profile.state || l.startsWith(profile.state + ' -'));
-      if (locMatch) { score += 8; reasons.push('Available in your state'); }
-      else { score -= 18; hardMismatch = true; }
-    }
-    if (op.locations?.includes('United States') && profile.state) score += 3;
-    if (getStatus(op).cls === 'closed') score -= 20;
-    score = Math.max(5, Math.min(99, score));
-    return { score, reasons, hardMismatch };
+    const quick=qs('#quick-match-form');quick?.addEventListener('submit',e=>{e.preventDefault();const q=new URLSearchParams();q.set('stage',quick.elements.stage.value);q.set('interest',quick.elements.interest.value);location.href='discover.html?'+q;});
   }
 
-  function profileCompletion(profile) {
-    const fields = [profile.stage, profile.interest, profile.state, profile.lowIncome, profile.pell, profile.firstGen, profile.inequitableAccess, profile.identities.length > 0];
-    const used = fields.filter(Boolean).length;
-    return Math.round((used / fields.length) * 100);
+  function initResources(){
+    const list=qs('#resource-links');if(!list)return;
+    const resources=[
+      ['FAFSA / Federal Student Aid','Complete the FAFSA and review federal grants, work-study, and student-aid guidance.','https://studentaid.gov/'],
+      ['Common App','College application platform used by many U.S. colleges and national scholarship programs.','https://www.commonapp.org/'],
+      ['College Scorecard','Compare colleges using federal data on cost, graduation, debt, and earnings.','https://collegescorecard.ed.gov/'],
+      ['QuestBridge Resource Library','Free guidance on college applications, financial aid, and paying for college.','https://www.questbridge.org/resources']
+    ];
+    list.innerHTML=resources.map(([name,description,url])=>`<div class="resource-item"><div class="resource-copy"><div class="resource-icon">${initials(name)}</div><div><h3>${escapeHtml(name)}</h3><p>${escapeHtml(description)}</p></div></div><a class="btn btn-secondary btn-sm" target="_blank" rel="noopener" href="${url}">Open resource ↗</a></div>`).join('');
   }
 
-  function renderProfileUI(profile) {
-    const progress = document.getElementById('profile-progress');
-    if (progress) {
-      const pct = profileCompletion(profile);
-      progress.style.setProperty('--progress', pct);
-      progress.querySelector('span').textContent = `${pct}%`;
-    }
-    const summary = document.getElementById('profile-summary');
-    if (!summary) return;
-    const chips = [];
-    if (profile.stage) chips.push(profile.stage);
-    if (profile.interest) chips.push(profile.interest);
-    if (profile.lowIncome) chips.push('Financial need');
-    if (profile.pell) chips.push('Pell');
-    if (profile.firstGen) chips.push('First-gen');
-    if (profile.inequitableAccess) chips.push('Access barriers');
-    if (profile.state) chips.push(profile.state);
-    summary.innerHTML = chips.map(x => `<span class="profile-chip">${esc(x)}</span>`).join('');
+  function initSources(){
+    const list=qs('#source-list')||qs('#source-links');if(!list)return;let q='';
+    const render=()=>{const rows=visibleData().filter(o=>(o.name+' '+o.organization+' '+o.displayType).toLowerCase().includes(q.toLowerCase()));const count=qs('#source-count');if(count)count.textContent=rows.length;const total=qs('#source-total');if(total)total.textContent=visibleData().length;const summary=qs('#source-summary');if(summary)summary.textContent=q?`${rows.length} source${rows.length===1?'':'s'} match your search`:`${rows.length} official program sources`;list.innerHTML=rows.map(o=>{const h=healthFor(o);if(list.id==='source-links')return `<div class="resource-item source-item"><div class="org-avatar">${initials(o.organization)}</div><div><h3>${escapeHtml(o.name)}</h3><div class="source-meta"><span>${escapeHtml(o.organization)}</span><span>${h.state==='verified'?'Source checked':'Needs review'}</span><span>${escapeHtml(o.statusNote)}</span></div></div><a class="btn btn-secondary btn-sm" target="_blank" rel="noopener" href="${o.sourceUrl}">Official source ↗</a></div>`;return `<a class="source-row" target="_blank" rel="noopener" href="${o.sourceUrl}"><span class="source-index">${String(o.num).padStart(2,'0')}</span><div><h3>${escapeHtml(o.name)}</h3><p>${escapeHtml(o.organization)} · ${escapeHtml(o.statusNote)}</p></div><span class="source-status ${h.state==='verified'?'':'review'}">${h.state==='verified'?'Source checked':'Review'}</span></a>`}).join('');};
+    qs('#source-search')?.addEventListener('input',e=>{q=e.target.value;render();});render();
   }
 
-  function initDiscover() {
-    const form = document.getElementById('match-form');
-    const grid = document.getElementById('results-grid');
-    if (!form || !grid) return;
-    const count = document.getElementById('results-number');
-    const caption = document.getElementById('results-caption');
-    const sort = document.getElementById('sort-results');
-    const savedToggle = document.getElementById('saved-toggle');
-    const likelyToggle = document.getElementById('likely-toggle');
-    const searchBox = document.getElementById('keyword-search');
-    const typeFilter = document.getElementById('type-filter');
-    const statusFilter = document.getElementById('status-filter');
-    const params = new URLSearchParams(location.search);
-    let savedOnly = params.get('saved') === '1';
-    let likelyOnly = false;
-
-    if (params.get('stage')) form.elements.stage.value = params.get('stage');
-    if (params.get('interest') && params.get('interest') !== 'Any') form.elements.interest.value = params.get('interest');
-    if (savedOnly) savedToggle?.classList.add('active');
-
-    const totalMetric = document.getElementById('discover-total');
-    const openMetric = document.getElementById('discover-open');
-    if (totalMetric) totalMetric.textContent = opportunities.length;
-    if (openMetric) openMetric.textContent = opportunities.filter(o => ['open', 'rolling'].includes(getStatus(o).cls)).length;
-
-    function render() {
-      const profile = profileFromForm(form);
-      renderProfileUI(profile);
-      const query = (searchBox?.value || '').trim().toLowerCase();
-      const savedIds = getSaved();
-      let items = opportunities.map(op => ({ op, ...scoreOpportunity(op, profile) }));
-      if (savedOnly) items = items.filter(x => savedIds.includes(x.op.id));
-      if (likelyOnly) items = items.filter(x => !x.hardMismatch && x.score >= 55);
-      if (query) items = items.filter(x => [x.op.name, x.op.organization, x.op.type, x.op.summary, ...(x.op.interests || [])].join(' ').toLowerCase().includes(query));
-      if (typeFilter?.value) items = items.filter(x => x.op.type.toLowerCase().includes(typeFilter.value));
-      if (statusFilter?.value) {
-        items = items.filter(x => {
-          const cls = getStatus(x.op).cls;
-          if (statusFilter.value === 'open') return cls === 'open';
-          if (statusFilter.value === 'upcoming') return cls === 'upcoming';
-          if (statusFilter.value === 'rolling') return cls === 'rolling';
-          return true;
-        });
-      }
-
-      if (sort.value === 'deadline') {
-        items.sort((a, b) => (parseDate(a.op.deadline)?.getTime() || Number.MAX_SAFE_INTEGER) - (parseDate(b.op.deadline)?.getTime() || Number.MAX_SAFE_INTEGER));
-      } else if (sort.value === 'name') {
-        items.sort((a, b) => a.op.name.localeCompare(b.op.name));
-      } else {
-        items.sort((a, b) => b.score - a.score || ((parseDate(a.op.deadline)?.getTime() || Number.MAX_SAFE_INTEGER) - (parseDate(b.op.deadline)?.getTime() || Number.MAX_SAFE_INTEGER)));
-      }
-
-      if (count) count.textContent = items.length;
-      const hasProfile = Object.values(profile).some(v => Array.isArray(v) ? v.length : !!v);
-      if (caption) caption.textContent = savedOnly ? 'Showing opportunities saved on this device.' : hasProfile ? 'Ranked using the profile information you selected.' : 'Showing all verified programs. Add profile details to improve ranking.';
-      grid.innerHTML = items.length
-        ? items.map(x => cardHTML(x.op, { match: x.score, reasons: x.reasons })).join('')
-        : `<div class="empty-state"><div class="empty-illustration">${icons.search}</div><h3>No opportunities match those filters yet</h3><p>Try clearing a profile field, turning off “Likely matches,” or searching a broader term.</p></div>`;
-      bindCards(grid);
-      updateSavedCounts();
-    }
-
-    form.addEventListener('change', render);
-    form.addEventListener('submit', e => { e.preventDefault(); render(); document.getElementById('results-top')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
-    form.querySelector('[data-reset]')?.addEventListener('click', () => {
-      form.reset(); if (searchBox) searchBox.value = ''; if (typeFilter) typeFilter.value = ''; if (statusFilter) statusFilter.value = ''; savedOnly = false; likelyOnly = false;
-      savedToggle?.classList.remove('active'); likelyToggle?.classList.remove('active'); render();
-    });
-    sort?.addEventListener('change', render);
-    typeFilter?.addEventListener('change', render);
-    statusFilter?.addEventListener('change', render);
-    searchBox?.addEventListener('input', render);
-    savedToggle?.addEventListener('click', () => { savedOnly = !savedOnly; savedToggle.classList.toggle('active', savedOnly); render(); });
-    likelyToggle?.addEventListener('click', () => { likelyOnly = !likelyOnly; likelyToggle.classList.toggle('active', likelyOnly); render(); });
-    document.addEventListener('savedChanged', render);
-
-    const filterPanel = document.querySelector('.filter-panel');
-    document.querySelector('.mobile-filter-button')?.addEventListener('click', () => filterPanel?.classList.toggle('mobile-open'));
-    render();
-  }
-
-  function initResources() {
-    const list = document.getElementById('resource-links');
-    if (!list) return;
-    list.innerHTML = (window.RESOURCE_LINKS || []).map((r, idx) => `
-      <div class="resource-item"><div class="resource-copy"><div class="resource-icon">${esc(orgInitials(r.name))}</div><div><h3>${esc(r.name)}</h3><p>${esc(r.description)}</p></div></div><a class="btn btn-secondary btn-sm" target="_blank" rel="noopener" href="${esc(r.url)}">Open resource ${icons.arrow}</a></div>`).join('');
-  }
-
-  function sourceRow(op) {
-    const tone = toneFor(op);
-    const st = getStatus(op);
-    return `<div class="resource-item source-item" data-source-row data-source-text="${esc(`${op.name} ${op.organization} ${op.type}`.toLowerCase())}"><div class="org-avatar tone-${tone}">${esc(orgInitials(op.organization))}</div><div><h3>${esc(op.name)}</h3><div class="source-meta"><span>${esc(op.organization)}</span><span>${statusPill(op)}</span><span>${icons.shield} Verified ${esc(op.verified)}</span><span>${icons.calendar} ${esc(op.deadlineNote || op.statusOverride || 'See official source')}</span></div></div><a class="btn btn-secondary btn-sm" target="_blank" rel="noopener" href="${esc(op.sourceUrl)}">Official source ${icons.arrow}</a></div>`;
-  }
-
-  function initSources() {
-    const list = document.getElementById('source-links');
-    if (!list) return;
-    const search = document.getElementById('source-search');
-    const summary = document.getElementById('source-summary');
-    const total = document.getElementById('source-total');
-    if (total) total.textContent = opportunities.length;
-
-    function render() {
-      const q = (search?.value || '').trim().toLowerCase();
-      const items = q ? opportunities.filter(op => `${op.name} ${op.organization} ${op.type}`.toLowerCase().includes(q)) : opportunities;
-      list.innerHTML = items.map(sourceRow).join('');
-      if (summary) summary.textContent = q ? `${items.length} source${items.length === 1 ? '' : 's'} match your search` : `${opportunities.length} verified program sources`;
-    }
-    search?.addEventListener('input', render);
-    render();
-  }
-
-  initNav();
-  initModal();
-  initHome();
-  initDiscover();
-  initResources();
-  initSources();
-  bindCards();
+  document.addEventListener('DOMContentLoaded',()=>{initCommon();initHome();initResources();initSources();initDiscover();});
 })();
