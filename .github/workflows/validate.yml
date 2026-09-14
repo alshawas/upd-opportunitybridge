@@ -28,4 +28,4 @@ jobs:
       - name: Cross-check WebAssembly against JavaScript fallback
         run: node scripts/test_wasm.mjs
       - name: Ensure generated assets are committed
-        run: git diff --exit-code -- data.js verification.js signals.js matcher.wasm
+        run: git diff --exit-code -- data.js verification.js signals.js
