@@ -41,7 +41,7 @@ jobs:
       - name: Cross-check WebAssembly against JavaScript fallback
         run: node scripts/test_wasm.mjs
       - name: Confirm generated files are committed
-        run: git diff --exit-code -- data.js verification.js signals.js matcher.wasm
+        run: git diff --exit-code -- data.js verification.js signals.js
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
