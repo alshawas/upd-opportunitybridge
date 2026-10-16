@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-15T14:12:44Z",
+  "generatedAt": "2026-10-16T13:59:53Z",
   "policyVersion": 2,
   "records": {
     "the-gates-scholarship": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.thegatesscholarship.org/scholarship/",
       "contentFingerprint": "d895a42e02039a4083ed",
@@ -14,7 +14,7 @@
     },
     "coca-cola-scholars-program": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.coca-colascholarsfoundation.org/apply/",
       "contentFingerprint": "5e8ea0694e163705a0f8",
@@ -25,7 +25,7 @@
     },
     "questbridge-national-college-match": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.questbridge.org/apply-to-college/programs/national-college-match",
       "contentFingerprint": "9034a3f2dd234b9fe45a",
@@ -36,7 +36,7 @@
     },
     "greenhouse-scholars-whole-person-college-program": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://apply.greenhousescholars.com/",
       "contentFingerprint": "7dfef07e4c23c7ba6e32",
@@ -45,18 +45,19 @@
       "contentChangedSinceReview": false
     },
     "daniels-scholarship-program": {
-      "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "state": "needs_review",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://danielsfund.org/our-work/scholarships/",
-      "contentFingerprint": "d2de9aa3c21aeb5327d2",
+      "contentFingerprint": "486f43f2905f889c14bf",
       "consecutiveHardFailures": 0,
-      "evidence": "Official source reachable; no strong discontinuation signal detected.",
-      "contentChangedSinceReview": false
+      "evidence": "Official source content changed after the catalog record was last reviewed; listing remains visible pending review.",
+      "contentChangedSinceReview": true,
+      "lastContentChange": "2026-10-16T13:59:53Z"
     },
     "cooke-college-scholarship-program": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.jkcf.org/our-scholarships/college-scholarship-program/",
       "contentFingerprint": "300628efc04877bb2c44",
@@ -67,18 +68,18 @@
     },
     "thrive-scholars": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://thrivescholars.org/scholars/how-to-apply/",
-      "contentFingerprint": "13ee2e5d812b815c097a",
+      "contentFingerprint": "eae52ce61169f4f1b34c",
       "consecutiveHardFailures": 0,
       "evidence": "Official source content changed after the catalog record was last reviewed; listing remains visible pending review.",
       "contentChangedSinceReview": true,
-      "lastContentChange": "2026-10-15T14:12:44Z"
+      "lastContentChange": "2026-10-16T13:59:53Z"
     },
     "leda-scholars-program": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://ledascholars.org/our-program/leda-scholars-program/recruitment-admissions/apply/closed-application/",
       "contentFingerprint": "a2b859881912b4646658",
@@ -89,7 +90,7 @@
     },
     "horatio-alger-undergraduate-scholarships-senior-cycle": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://horatioalger.org/scholarships/",
       "contentFingerprint": "c15d01e0aff7582c9519",
@@ -100,7 +101,7 @@
     },
     "horatio-alger-national-scholarship-junior-cycle": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://horatioalger.org/scholarships-and-services/undergraduate-scholarships/",
       "contentFingerprint": "d2eccc94bdf8188ede95",
@@ -111,7 +112,7 @@
     },
     "bigfuture-scholarships": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://bigfuture.collegeboard.org/pay-for-college/bigfuture-scholarships",
       "contentFingerprint": "c6513f356d8e121d642f",
@@ -122,7 +123,7 @@
     },
     "benjamin-a-gilman-international-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.gilmanscholarship.org/",
       "contentFingerprint": "e389ac870c85c2a3c17d",
@@ -133,7 +134,7 @@
     },
     "cooke-undergraduate-transfer-scholarship": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.jkcf.org/our-scholarships/",
       "contentFingerprint": "e61af0865a37fe716d11",
@@ -143,7 +144,7 @@
     },
     "american-indian-college-fund-scholarships": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://collegefund.org/students/scholarships/",
       "contentFingerprint": "155123ee85344f5bcf42",
@@ -154,18 +155,18 @@
     },
     "apia-scholarship-program": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://apiascholars.org/scholarships/",
-      "contentFingerprint": "dee4e7768747fd80c6de",
+      "contentFingerprint": "1461e3d8ee873e05e9b5",
       "consecutiveHardFailures": 0,
       "evidence": "Official source content changed after the catalog record was last reviewed; listing remains visible pending review.",
       "contentChangedSinceReview": true,
-      "lastContentChange": "2026-10-05T18:32:13Z"
+      "lastContentChange": "2026-10-16T13:59:53Z"
     },
     "mlt-career-prep-2029": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://mlt.smapply.org/prog/careerprep2029_application/",
       "contentFingerprint": "bb36a853d281d66fdc0a",
@@ -176,18 +177,18 @@
     },
     "seo-career": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://career.seo-usa.org/apply-faq/",
-      "contentFingerprint": "c074c1f9a794b473b1ef",
+      "contentFingerprint": "2b1c0c1983b240f5f6e7",
       "consecutiveHardFailures": 0,
       "evidence": "Official source content changed after the catalog record was last reviewed; listing remains visible pending review.",
       "contentChangedSinceReview": true,
-      "lastContentChange": "2026-10-15T14:12:44Z"
+      "lastContentChange": "2026-10-16T13:59:53Z"
     },
     "jane-street-in-focus": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.janestreet.com/apply-in-focus-nyc/",
       "contentFingerprint": "792a477e2ac46564320b",
@@ -198,7 +199,7 @@
     },
     "break-through-tech-agentic-ai-program": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://breakthroughtechadmissions.zendesk.com/hc/en-us/articles/54057675102235-2026-2027-Key-Admissions-Dates-and-Deadlines",
       "contentFingerprint": "459389a6ac435ab8a631",
@@ -209,7 +210,7 @@
     },
     "break-through-tech-ai-program": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://breakthroughtechadmissions.zendesk.com/hc/en-us/articles/54057675102235-2026-2027-Key-Admissions-Dates-and-Deadlines",
       "contentFingerprint": "459389a6ac435ab8a631",
@@ -220,7 +221,7 @@
     },
     "goldwater-summer-research-internship-program": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.goldwaterinternship.gov/",
       "contentFingerprint": "0fff954852203fbd4111",
@@ -231,7 +232,7 @@
     },
     "barry-goldwater-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://goldwaterscholarship.gov/",
       "contentFingerprint": "587a6de82c7b6062e8a8",
@@ -242,7 +243,7 @@
     },
     "dell-scholars": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.dellscholars.org/students/",
       "contentFingerprint": "07bacc8fd42e733a19ec",
@@ -253,7 +254,7 @@
     },
     "hagan-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://haganscholarships.org/application/",
       "contentFingerprint": "fb1242a11e98404c27e0",
@@ -264,7 +265,7 @@
     },
     "ron-brown-signature-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://ronbrown.org/ron-brown-scholarship/",
       "contentFingerprint": "92c3ef8f165df2df7fbe",
@@ -275,7 +276,7 @@
     },
     "jackie-robinson-foundation-scholarship": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://jackierobinson.org/apply/",
       "contentFingerprint": "1211fdcd10eb6e233189",
@@ -285,7 +286,7 @@
     },
     "elks-most-valuable-student-scholarship": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.elks.org/scholars/mvs.cfm",
       "contentFingerprint": "5e32a47376974892847c",
@@ -295,7 +296,7 @@
     },
     "ge-reagan-foundation-scholarship-program": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.reaganfoundation.org/education/ge-reagan-foundation-scholarship",
       "contentFingerprint": "073896b407d2aeeda85d",
@@ -305,7 +306,7 @@
     },
     "ge-aerospace-reagan-workforce-readiness-scholarship": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.reaganfoundation.org/education/workforce-readiness-scholarship",
       "contentFingerprint": "47c28f8c56db5e583e24",
@@ -315,7 +316,7 @@
     },
     "cameron-impact-scholarship-class-of-2028": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.bryancameroneducationfoundation.org/scholarship",
       "contentFingerprint": "f63f910e1094afe8a26d",
@@ -326,7 +327,7 @@
     },
     "the-coolidge-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://coolidgescholars.org/selection-timeline/",
       "contentFingerprint": "91b8feed974b40ea694c",
@@ -337,7 +338,7 @@
     },
     "questbridge-college-prep-scholars-program": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.questbridge.org/apply-to-college/programs/college-prep-scholars-program/apply",
       "contentFingerprint": "e5b7b18527368993331d",
@@ -347,7 +348,7 @@
     },
     "posse-scholarship": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.possefoundation.org/recruiting-students/the-nomination-process",
       "contentFingerprint": "98324fd08749b1740452",
@@ -357,7 +358,7 @@
     },
     "burger-king-scholars": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.burgerkingfoundation.org/programs/burger-king-sm-scholars",
       "contentFingerprint": "dc7ed610523852a8c669",
@@ -368,7 +369,7 @@
     },
     "davidson-fellows-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.davidsongifted.org/gifted-programs/fellows-scholarship/eligibility/how-to-apply/",
       "contentFingerprint": "5b7af6401fbb8d813ef3",
@@ -379,7 +380,7 @@
     },
     "matriculate-high-school-fellows": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://matriculate.org/high-school-fellows-application/",
       "contentFingerprint": "66859cef974da4df6ec4",
@@ -389,7 +390,7 @@
     },
     "mites-summer-mites-semester": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://mites.mit.edu/discover-mites/faq-for-prospective-students/faqs-mites-semester-and-mites-summer/",
       "contentFingerprint": "2a2f2c16d98a40ef5fdf",
@@ -399,7 +400,7 @@
     },
     "summer-science-program-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://ssp.org/application/",
       "contentFingerprint": "69df77aa51f9bb2fbdcf",
@@ -410,7 +411,7 @@
     },
     "p-e-o-star-scholarship": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.peointernational.org/resource/star-scholarship-procedures/",
       "contentFingerprint": "e113f33f73c99aa830b9",
@@ -420,7 +421,7 @@
     },
     "live-m-s-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://tacobellfoundation.org/live-mas-scholarship/eligibilityfaq/",
       "contentFingerprint": "7c02c4019bdd5486621f",
@@ -431,7 +432,7 @@
     },
     "thedream-us-national-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.thedream.us/scholarships/national-scholarship/",
       "contentFingerprint": "e46ff112e8b2816ca8eb",
@@ -442,7 +443,7 @@
     },
     "thedream-us-opportunity-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.thedream.us/scholarships/opportunity-scholarship/",
       "contentFingerprint": "c14cc9f0c10f90d9395b",
@@ -453,7 +454,7 @@
     },
     "hsf-scholar-program": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.hsf.net/scholarship/",
       "contentFingerprint": "66a6641257b85c8d1cca",
@@ -463,7 +464,7 @@
     },
     "tmcf-enterprise-access-hbcc-scholarship-2027-28": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://tmcf.org/open-scholarships/2027-2028-tmcf-enterprise-access-hbcc-scholarship/",
       "contentFingerprint": "156358e82490fd2319ff",
@@ -474,7 +475,7 @@
     },
     "tmcf-enterprise-access-hbcu-scholarship-2027-28": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://tmcf.org/open-scholarships/2027-2028-tmcf-enterprise-access-hbcu-scholarship/",
       "contentFingerprint": "bed0d4e8c013657180f1",
@@ -485,7 +486,7 @@
     },
     "tmcf-mcdonald-s-black-positively-golden-scholarship-2027-28": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://tmcf.org/open-scholarships/2027-2028-tmcf-mcdonalds-black-and-positively-golden-scholarship/",
       "contentFingerprint": "5fb1fa0ba3ef14615d96",
@@ -496,7 +497,7 @@
     },
     "tmcf-molsoncoors-scholarship-2027-28": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://tmcf.org/open-scholarships/2027-2028-tmcf-molsoncoors-scholarship/",
       "contentFingerprint": "ceaad7bf276056439914",
@@ -507,18 +508,18 @@
     },
     "tmcf-wells-fargo-gap-scholarship-2026-27": {
       "state": "discontinued",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 404,
       "resolvedUrl": "https://tmcf.org/open-scholarships/tmcf-wells-fargo-gap-scholarship/",
       "contentFingerprint": "7935fc6391e073c066a8",
-      "consecutiveHardFailures": 6,
-      "evidence": "Official source returned HTTP 404 on 6 consecutive scheduled checks.",
+      "consecutiveHardFailures": 7,
+      "evidence": "Official source returned HTTP 404 on 7 consecutive scheduled checks.",
       "contentChangedSinceReview": true,
       "lastContentChange": "2026-10-10T15:25:15Z"
     },
     "tmcf-sallie-mae-completing-the-dream-scholarship-2026-27": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://tmcf.org/open-scholarships/tmcf-sallie-mae-fund-completing-the-dream-gap-scholarship/",
       "contentFingerprint": "53d2d3469bb5e2f94b44",
@@ -528,19 +529,19 @@
       "lastContentChange": "2026-10-15T14:12:44Z"
     },
     "tmcf-lowe-s-gap-scholarship-2026-27": {
-      "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "state": "discontinued",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 404,
       "resolvedUrl": "https://tmcf.org/open-scholarships/2026-2027-tmcf-lowes-gap-scholarship/",
       "contentFingerprint": "7935fc6391e073c066a8",
-      "consecutiveHardFailures": 1,
-      "evidence": "Official source returned HTTP 404; one more scheduled hard failure is required before withholding.",
+      "consecutiveHardFailures": 2,
+      "evidence": "Official source returned HTTP 404 on 2 consecutive scheduled checks.",
       "contentChangedSinceReview": true,
       "lastContentChange": "2026-10-15T14:12:44Z"
     },
     "tmcf-eastern-area-links-finish-line-scholarship-2026-27": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://tmcf.org/open-scholarships/2026-2027-tmcf-eastern-area-links-finish-line-scholarship/",
       "contentFingerprint": "4f1e10d80fbe62bf4db8",
@@ -551,7 +552,7 @@
     },
     "uncf-scholarship-opportunities": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://uncf.org/scholarships",
       "contentFingerprint": "fa3939a2a98323773c69",
@@ -562,7 +563,7 @@
     },
     "davis-putter-scholarship-fund": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.davisputter.org/apply",
       "contentFingerprint": "d555dedbbf4491e88244",
@@ -572,7 +573,7 @@
     },
     "native-forward-scholarships-fellowships": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.nativeforward.org/scholarship-faq/",
       "contentFingerprint": "ea1304bfd88b6f3f1b8d",
@@ -582,7 +583,7 @@
     },
     "aises-scholarships": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://aises.org/scholarships/",
       "contentFingerprint": "a7c199b60d5aaefa71f6",
@@ -593,7 +594,7 @@
     },
     "point-foundation-flagship-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://pointfoundation.org/scholarships/flagship",
       "contentFingerprint": "2a62835e5095aeef9cc4",
@@ -604,7 +605,7 @@
     },
     "point-foundation-access-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://pointfoundation.org/scholarships/access",
       "contentFingerprint": "f031db109850405ddecd",
@@ -615,7 +616,7 @@
     },
     "point-foundation-community-college-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://pointfoundation.org/scholarships/community-college",
       "contentFingerprint": "e4c80aab3c54bb3e5e0c",
@@ -626,7 +627,7 @@
     },
     "society-of-women-engineers-scholarships-2027-28": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://swe.org/apply-for-a-swe-scholarship/",
       "contentFingerprint": "9cc45aa52e176bcddeca",
@@ -637,7 +638,7 @@
     },
     "scholarshpe": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://shpe.org/engage/programs/scholarshpe/",
       "contentFingerprint": "36495bc458da6f7a4147",
@@ -648,18 +649,18 @@
     },
     "nsbe-scholarships-fall-2026-cycle": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://nsbe.org/scholarships/",
-      "contentFingerprint": "b873e60a91b3b6071292",
+      "contentFingerprint": "08884f0385fdf24f888c",
       "consecutiveHardFailures": 0,
       "evidence": "Official source content changed after the catalog record was last reviewed; listing remains visible pending review.",
       "contentChangedSinceReview": true,
-      "lastContentChange": "2026-10-15T14:12:44Z"
+      "lastContentChange": "2026-10-16T13:59:53Z"
     },
     "amazon-future-engineer-scholarship-internship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.amazonfutureengineer.com/scholarships",
       "contentFingerprint": "2ce40cbbe55dc7cb36ca",
@@ -670,7 +671,7 @@
     },
     "smart-scholarship-for-service": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.smartscholarship.org/smart",
       "contentFingerprint": "50cdd287580885baac63",
@@ -680,7 +681,7 @@
     },
     "great-minds-in-stem-scholarships": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://greatmindsinstem.org/gmis-scholarship-application/gmis-scholarships/",
       "contentFingerprint": "0e49ed886e611cc6da3a",
@@ -689,18 +690,19 @@
       "contentChangedSinceReview": false
     },
     "girls-who-invest-scholars-program-2027": {
-      "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "state": "needs_review",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.girlswhoinvest.org/apply-faqs",
-      "contentFingerprint": "e5d4717f4bc9a301ebd9",
+      "contentFingerprint": "ea7d01fab7d0e4b48cdc",
       "consecutiveHardFailures": 0,
-      "evidence": "Official source reachable; no strong discontinuation signal detected.",
-      "contentChangedSinceReview": false
+      "evidence": "Official source content changed after the catalog record was last reviewed; listing remains visible pending review.",
+      "contentChangedSinceReview": true,
+      "lastContentChange": "2026-10-16T13:59:53Z"
     },
     "inroads-internship-program": {
       "state": "discontinued",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://inroads.org/internships-program/faqs/",
       "contentFingerprint": "6bad83db4c8752982e65",
@@ -711,7 +713,7 @@
     },
     "doe-science-undergraduate-laboratory-internships-suli-spring-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://science.osti.gov/wdts/suli",
       "contentFingerprint": "d95cea1026f7ea6e4db1",
@@ -722,7 +724,7 @@
     },
     "doe-community-college-internships-cci-spring-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://science.osti.gov/wdts/cci",
       "contentFingerprint": "c0305dc18a4eb4e2a366",
@@ -733,29 +735,29 @@
     },
     "nasa-ostem-internships-2027-cycles": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.nasa.gov/learning-resources/internship-programs/",
-      "contentFingerprint": "c54d92d5d0ce7c15e55f",
+      "contentFingerprint": "a2a6cd3e1895a0f38a6d",
       "consecutiveHardFailures": 0,
       "evidence": "Official source content changed after the catalog record was last reviewed; listing remains visible pending review.",
       "contentChangedSinceReview": true,
-      "lastContentChange": "2026-10-15T14:12:44Z"
+      "lastContentChange": "2026-10-16T13:59:53Z"
     },
     "nasa-pathways-internship-program-spring-summer-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.nasa.gov/careers/pathways/",
-      "contentFingerprint": "6d14114655f2177072c7",
+      "contentFingerprint": "c1c335b3f14d88856640",
       "consecutiveHardFailures": 0,
       "evidence": "Official source content changed after the catalog record was last reviewed; listing remains visible pending review.",
       "contentChangedSinceReview": true,
-      "lastContentChange": "2026-10-15T14:12:44Z"
+      "lastContentChange": "2026-10-16T13:59:53Z"
     },
     "big-ten-academic-alliance-summer-research-opportunities-program": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://btaa.org/resources-for-students/srop/how-to-apply",
       "contentFingerprint": "2cb237b91f1110a87eba",
@@ -766,7 +768,7 @@
     },
     "ppia-junior-summer-institute-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.ppiaprogram.org/JSI",
       "contentFingerprint": "83c423a1353bd19ac0ae",
@@ -777,7 +779,7 @@
     },
     "nsf-research-experiences-for-undergraduates-reu-sites": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.nsf.gov/funding/initiatives/reu/students",
       "contentFingerprint": "892cb49c7c9c00866eda",
@@ -788,7 +790,7 @@
     },
     "harry-s-truman-scholarship-2027": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.truman.gov/apply/applying/important-dates",
       "contentFingerprint": "62dd6465ba4a9e7eecff",
@@ -798,7 +800,7 @@
     },
     "gilman-mccain-scholarship-fall-2026-cycle": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.gilmanscholarship.org/program/gilman-mccain-scholarships/",
       "contentFingerprint": "c3a5c230768fefa4a111",
@@ -809,7 +811,7 @@
     },
     "gem-fellowship-2027": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://egem.gemfellowship.org/login",
       "contentFingerprint": "4a61fd3d02fc47f0ad3d",
@@ -819,7 +821,7 @@
     },
     "nsf-graduate-research-fellowship-program-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.nsf.gov/funding/initiatives/grfp",
       "contentFingerprint": "a0dae9356168e9bf1630",
@@ -830,7 +832,7 @@
     },
     "paul-daisy-soros-fellowships-for-new-americans-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://pdsoros.org/application-process/",
       "contentFingerprint": "edf3057249c095fd9de3",
@@ -841,7 +843,7 @@
     },
     "p-e-o-international-peace-scholarship-2027-28": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.peointernational.org/resource/ips-application-calendar/",
       "contentFingerprint": "f099d246bfcf0145a1aa",
@@ -851,7 +853,7 @@
     },
     "p-e-o-program-for-continuing-education": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.peointernational.org/resource/pce-policies-and-procedures/",
       "contentFingerprint": "d539d86a8fbb7d1bdd49",
@@ -861,7 +863,7 @@
     },
     "jane-street-focus": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.janestreet.com/join-jane-street/programs-and-events/focus/",
       "contentFingerprint": "d625eb8ca09c6b9ff67c",
@@ -871,7 +873,7 @@
     },
     "jane-street-fttp": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.janestreet.com/join-jane-street/programs-and-events/fttp/",
       "contentFingerprint": "d38b24033b272f4bdcfb",
@@ -881,7 +883,7 @@
     },
     "jane-street-insight": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.janestreet.com/join-jane-street/programs-and-events/insight/",
       "contentFingerprint": "00c7cbdc745cd662ac1d",
@@ -891,7 +893,7 @@
     },
     "jane-street-preview": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.janestreet.com/join-jane-street/programs-and-events/preview/",
       "contentFingerprint": "8dd86092dbaca98d6bcb",
@@ -901,7 +903,7 @@
     },
     "jane-street-bridge": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.janestreet.com/join-jane-street/programs-and-events/bridge/",
       "contentFingerprint": "3c957fa59e5385d71f68",
@@ -911,7 +913,7 @@
     },
     "jane-street-academy-of-math-and-programming-amp-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.janestreet.com/join-jane-street/programs-and-events/amp/",
       "contentFingerprint": "ab21c43285828d63422b",
@@ -922,7 +924,7 @@
     },
     "jane-street-graduate-research-fellowship-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.janestreet.com/join-jane-street/programs-and-events/graduate-research-fellowship/",
       "contentFingerprint": "6435f8a6e7c576fd9431",
@@ -933,7 +935,7 @@
     },
     "jane-street-see": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.janestreet.com/join-jane-street/programs-and-events/see/",
       "contentFingerprint": "ba4a94d42aa228662f19",
@@ -943,7 +945,7 @@
     },
     "codepath-foundations-of-ai-engineering-ai110": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.codepath.org/courses",
       "contentFingerprint": "b94babd5f60b451424fc",
@@ -953,7 +955,7 @@
     },
     "codepath-applications-of-ai-engineering-ai201": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.codepath.org/courses",
       "contentFingerprint": "b94babd5f60b451424fc",
@@ -963,7 +965,7 @@
     },
     "codepath-ai-open-source-capstone-ai301": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.codepath.org/courses",
       "contentFingerprint": "b94babd5f60b451424fc",
@@ -973,7 +975,7 @@
     },
     "codepath-technical-interview-prep": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.codepath.org/courses/tech-interview-prep",
       "contentFingerprint": "69dd87347c7f5c0fc357",
@@ -983,7 +985,7 @@
     },
     "codepath-web-development-pathway": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.codepath.org/courses",
       "contentFingerprint": "b94babd5f60b451424fc",
@@ -993,7 +995,7 @@
     },
     "codepath-cybersecurity-pathway": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.codepath.org/courses/cybersecurity",
       "contentFingerprint": "4f5535e4b4a091b5ede2",
@@ -1003,7 +1005,7 @@
     },
     "codepath-android-development-pathway": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.codepath.org/courses",
       "contentFingerprint": "b94babd5f60b451424fc",
@@ -1013,7 +1015,7 @@
     },
     "codepath-ios-development-pathway": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.codepath.org/courses/ios-development",
       "contentFingerprint": "51ce7419999c3c0116f5",
@@ -1023,7 +1025,7 @@
     },
     "codepath-emerging-engineer-empowerment-e3": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.codepath.org/e3",
       "contentFingerprint": "4cc60970e57320815b27",
@@ -1033,7 +1035,7 @@
     },
     "brooke-owens-fellowship-class-of-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.brookeowensfellowship.org/apply",
       "contentFingerprint": "766cb0842dc90c84143b",
@@ -1044,7 +1046,7 @@
     },
     "patti-grace-smith-fellowship-class-of-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.pgsfellowship.org/apply",
       "contentFingerprint": "6e9bb9273fa6eba45877",
@@ -1055,7 +1057,7 @@
     },
     "fulbright-u-s-student-program-2027-28": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://us.fulbrightonline.org/factors-in-selection",
       "contentFingerprint": "cfd022b1b974d09c4e39",
@@ -1066,18 +1068,18 @@
     },
     "critical-language-scholarship-cls-2027": {
       "state": "discontinued",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 404,
       "resolvedUrl": "https://clscholarship.org/apply",
       "contentFingerprint": "65df6683666ab3d7b0db",
-      "consecutiveHardFailures": 15,
-      "evidence": "Official source returned HTTP 404 on 15 consecutive scheduled checks.",
+      "consecutiveHardFailures": 16,
+      "evidence": "Official source returned HTTP 404 on 16 consecutive scheduled checks.",
       "contentChangedSinceReview": true,
       "lastContentChange": "2026-10-01T16:29:16Z"
     },
     "hertz-fellowship-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.hertzfoundation.org/hertz-fellowship/apply/",
       "contentFingerprint": "e9a4baccbb153c1983a2",
@@ -1088,29 +1090,29 @@
     },
     "daad-rise-germany-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
-      "httpStatus": 200,
+      "lastChecked": "2026-10-16T13:59:53Z",
+      "httpStatus": 403,
       "resolvedUrl": "https://www.daad.de/rise/en/rise-germany/find-an-internship/application-portal/",
-      "contentFingerprint": "79978816f5b9bd53134f",
+      "contentFingerprint": "b8a9089d34f59a5765c0",
       "consecutiveHardFailures": 0,
-      "evidence": "Official source content changed after the catalog record was last reviewed; listing remains visible pending review.",
+      "evidence": "Official source returned HTTP 403; record remains visible pending review.",
       "contentChangedSinceReview": true,
-      "lastContentChange": "2026-10-15T14:12:44Z"
+      "lastContentChange": "2026-10-16T13:59:53Z"
     },
     "daad-rise-professional-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
-      "httpStatus": 200,
+      "lastChecked": "2026-10-16T13:59:53Z",
+      "httpStatus": 403,
       "resolvedUrl": "https://www.daad.de/rise/de/rise-professional/firmenpraktikum-anbieten/jetzt-ein-firmenpraktikum-anbieten/",
-      "contentFingerprint": "a9d6445b2cda88de371b",
+      "contentFingerprint": "b8a9089d34f59a5765c0",
       "consecutiveHardFailures": 0,
-      "evidence": "Official source content changed after the catalog record was last reviewed; listing remains visible pending review.",
+      "evidence": "Official source returned HTTP 403; record remains visible pending review.",
       "contentChangedSinceReview": true,
-      "lastContentChange": "2026-10-15T14:12:44Z"
+      "lastContentChange": "2026-10-16T13:59:53Z"
     },
     "doe-office-of-science-graduate-student-research-scgsr": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://science.osti.gov/wdts/scgsr/how-to-apply",
       "contentFingerprint": "97c1e6859a6c3d5262ba",
@@ -1121,7 +1123,7 @@
     },
     "nsf-international-research-experiences-for-students-ires": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.nsf.gov/funding/undergraduates",
       "contentFingerprint": "09108d4eaa09e2bce5d7",
@@ -1132,7 +1134,7 @@
     },
     "blackrock-2027-summer-internship-program-americas": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://careers.blackrock.com/students-and-graduates-americas",
       "contentFingerprint": "e991927fec803b75df3d",
@@ -1143,7 +1145,7 @@
     },
     "blackrock-founders-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://careers.blackrock.com/students-and-graduates-americas",
       "contentFingerprint": "e991927fec803b75df3d",
@@ -1154,7 +1156,7 @@
     },
     "uber-career-prep": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://jobs.uber.com/en/teams/emerging-talent/careerprep/",
       "contentFingerprint": "960e175a5c9fbe3156ae",
@@ -1164,7 +1166,7 @@
     },
     "uber-software-engineering-internship-program": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://jobs.uber.com/en/teams/emerging-talent/?countryiso2=us",
       "contentFingerprint": "63de9d967c5c1df6e3b5",
@@ -1174,7 +1176,7 @@
     },
     "uber-data-science-applied-science-internships": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://jobs.uber.com/en/teams/emerging-talent/?countryiso2=us",
       "contentFingerprint": "63de9d967c5c1df6e3b5",
@@ -1184,7 +1186,7 @@
     },
     "uber-strategy-operations-analytics-rotational-program": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://jobs.uber.com/en/teams/emerging-talent/?countryiso2=us",
       "contentFingerprint": "63de9d967c5c1df6e3b5",
@@ -1194,18 +1196,18 @@
     },
     "nih-summer-internship-program-sip-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.training.nih.gov/research-training/pb/sip/",
-      "contentFingerprint": "e43c107c437da45915ad",
+      "contentFingerprint": "b8df192d495b6744e00b",
       "consecutiveHardFailures": 0,
       "evidence": "Official source content changed after the catalog record was last reviewed; listing remains visible pending review.",
       "contentChangedSinceReview": true,
-      "lastContentChange": "2026-10-13T16:58:55Z"
+      "lastContentChange": "2026-10-16T13:59:53Z"
     },
     "amgen-scholars-u-s-program-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://amgenscholars.com/",
       "contentFingerprint": "85e1055af888dc64c279",
@@ -1216,7 +1218,7 @@
     },
     "caltech-wave-fellows-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://sfp.caltech.edu/undergraduate-research/programs/wavefellows/application_information",
       "contentFingerprint": "c083fe0846b8191cefc6",
@@ -1227,7 +1229,7 @@
     },
     "udall-undergraduate-scholarship": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.udall.gov/ourprograms/scholarship/scholarship",
       "contentFingerprint": "5ae360acd5c4e70869d5",
@@ -1238,7 +1240,7 @@
     },
     "noaa-ernest-f-hollings-undergraduate-scholarship": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://oedwebdbapps.iso.noaa.gov/SSIO/Default.aspx",
       "contentFingerprint": "600eaec8fc68386f49c5",
@@ -1248,7 +1250,7 @@
     },
     "codepath-salesforce-futureforce-tech-launchpad": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.codepath.org/courses",
       "contentFingerprint": "b94babd5f60b451424fc",
@@ -1258,7 +1260,7 @@
     },
     "codepath-claude-corps": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.codepath.org/courses",
       "contentFingerprint": "b94babd5f60b451424fc",
@@ -1268,7 +1270,7 @@
     },
     "leadership-alliance-summer-research-early-identification-program-sr-eip": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://theleadershipalliance.org/summer-research-early-identification-program",
       "contentFingerprint": "38aecc0825df27045bc3",
@@ -1279,7 +1281,7 @@
     },
     "lsu-freshmen-explorers-program-2026-27": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://lsu.edu/our/funding/explorers_program.php",
       "contentFingerprint": "69c1ce4a88d74f1c16a5",
@@ -1289,7 +1291,7 @@
     },
     "lsu-gulf-scholars-program-cohort-5": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.lsu.edu/our/funding/gulf_scholars_program.php",
       "contentFingerprint": "a61810caae6a478a1736",
@@ -1300,7 +1302,7 @@
     },
     "lsu-distinguished-undergraduate-researcher-program": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.lsu.edu/our/students/distinguished-undergraduate-research-program.php",
       "contentFingerprint": "03694c307b0605ae3be5",
@@ -1311,7 +1313,7 @@
     },
     "lsu-summer-undergraduate-research-project-grants": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.lsu.edu/our/funding/index.php",
       "contentFingerprint": "c7c445ac1d38a45a54ff",
@@ -1322,7 +1324,7 @@
     },
     "louisiana-space-sea-grant-opportunity-lasso": {
       "state": "verified",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://laspace.lsu.edu/lasso-la-space-sea-grant-opportunity/",
       "contentFingerprint": "b57a30f382e4f3cbedc0",
@@ -1332,7 +1334,7 @@
     },
     "jnj-access-ability-lime-2026": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://limeconnect.com/awards/jnjaccessabilitylimescholarship/",
       "contentFingerprint": "7409467eee12d11b6a59",
@@ -1343,7 +1345,7 @@
     },
     "pat-tillman-scholar-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 403,
       "resolvedUrl": "https://pattillmanfoundation.org/apply/",
       "contentFingerprint": "6a0825976dfcfc0b4c60",
@@ -1353,7 +1355,7 @@
     },
     "forte-fast-track-finance-2026": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.fortefoundation.org/college/events/finance/",
       "contentFingerprint": "26f161daefdaf144145b",
@@ -1364,7 +1366,7 @@
     },
     "freeman-asia-2027-28": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.iie.org/programs/freeman-asia/apply/",
       "contentFingerprint": "59406d7ab04532e978f9",
@@ -1375,7 +1377,7 @@
     },
     "caltech-surf-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://sfp.caltech.edu/undergraduate-research/programs/surf/application_information",
       "contentFingerprint": "1eacf396b7817afd6ccf",
@@ -1386,7 +1388,7 @@
     },
     "stanford-engineering-surf-next": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://engineering.stanford.edu/SURF",
       "contentFingerprint": "df4a4606ef44fcb0124e",
@@ -1397,18 +1399,18 @@
     },
     "fea-winter-spring-2027": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://fundforeducationabroad.org/",
-      "contentFingerprint": "8356d961e9067a45861b",
+      "contentFingerprint": "4647f5bef8c022a635be",
       "consecutiveHardFailures": 0,
       "evidence": "Official source content changed after the catalog record was last reviewed; listing remains visible pending review.",
       "contentChangedSinceReview": true,
-      "lastContentChange": "2026-10-15T14:12:44Z"
+      "lastContentChange": "2026-10-16T13:59:53Z"
     },
     "doe-csgf-next": {
       "state": "needs_review",
-      "lastChecked": "2026-10-15T14:12:44Z",
+      "lastChecked": "2026-10-16T13:59:53Z",
       "httpStatus": 200,
       "resolvedUrl": "https://www.krellinst.org/csgf/how-apply",
       "contentFingerprint": "fe711a5b26f9ef2d717a",
